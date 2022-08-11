@@ -21,9 +21,9 @@ app.get('/', (req, res) => {
   res.json({ message: 'hello world' });
 });
 
-app.use(errorHandler);
-
 app.use('/api/users', require('../backend/routes/userRoutes'));
+
+app.use(errorHandler);
 
 app.listen(port, () => {
   console.log(`Server Started on port:${port}`);

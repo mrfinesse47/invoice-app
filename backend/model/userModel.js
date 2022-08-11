@@ -13,9 +13,10 @@ const userScheema = mongoose.Schema(
       enum: ['Pending', 'Active'],
       default: 'Pending',
     },
-    confirmationCode: {
+    emailConfirmationCode: {
       type: String,
       unique: true,
+      required: [true, 'please add a email confirmation code'],
     },
   },
   { timestamps: true }
