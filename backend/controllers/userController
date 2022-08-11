@@ -4,6 +4,7 @@ const asyncHandler = require('express-async-handler');
 const crypto = require('crypto');
 const User = require('../model/userModel');
 const { transporter } = require('../mailer/mailerConfig');
+const emailConfirmHTML = require('../mailer/HTMLmessages/emailConfirmation');
 
 // @desc  register new user
 // @route POST /api/users
@@ -39,9 +40,11 @@ const registerUser = asyncHandler(async (req, res) => {
   if (user) {
     const options = {
       from: process.env.MAILER_USER,
-      to: process.env.TEST_EMAIL,
-      subject: 'sending email with node.js again',
-      text: 'another test',
+      to:
+        process.env.NODE_ENV === 'development' ? process.env.TEST_EMAIL : email,
+      //set testing email to send registration link to
+      subject: 'Please Confirm Your Email Address',
+      html: emailConfirmHTML(user),
     };
 
     transporter.sendMail(options, (err) => {
