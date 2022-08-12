@@ -1,0 +1,19 @@
+@font-face {
+  font-family: 'spartan';
+  src: url('./fonts/spartan/Spartan-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'spartan';
+  src: url('./fonts/spartan/Spartan-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
