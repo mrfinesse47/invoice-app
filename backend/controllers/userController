@@ -2,8 +2,10 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const asyncHandler = require('express-async-handler');
 const crypto = require('crypto');
+const sgMail = require('@sendgrid/mail');
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+
 const User = require('../model/userModel');
-const { transporter } = require('../mailer/mailerConfig');
 const emailConfirmHTML = require('../mailer/HTMLmessages/emailConfirmation');
 
 // @desc  register new user
@@ -38,20 +40,19 @@ const registerUser = asyncHandler(async (req, res) => {
 
   //if user is successfully created in db
   if (user) {
-    const options = {
-      from: process.env.MAILER_USER,
-      to:
-        process.env.NODE_ENV === 'development' ? process.env.TEST_EMAIL : email,
-      //set testing email to send registration link to
-      subject: 'Please Confirm Your Email Address',
+    const msg = {
+      to: process.env.TEST_EMAIL, // Change to your recipient
+      from: process.env.MAILER_USER, // Change to your verified sender
+      subject: 'Please activate your invoice-app account',
+      text: 'Activation...',
       html: emailConfirmHTML(user),
     };
 
-    transporter.sendMail(options, (err) => {
-      if (err) {
-        throw new Error('failed to send regestration email');
-      }
-    });
+    try {
+      await sgMail.send(msg);
+    } catch (e) {
+      throw new Error('failed to send registration email');
+    }
 
     res.status(201).json({
       _id: user.id,
@@ -98,9 +99,49 @@ const getMe = asyncHandler(async (req, res) => {
   res.status(200).json({ id: _id, name, email });
 });
 
+// @desc  user registration link from email
+// @route GET /api/users/confirm/:token
+// @access Private
+
+const activateUser = asyncHandler(async (req, res) => {
+  const { emailConfirmationCode } = req.params;
+  //check for user email
+
+  let user = await User.findOneAndUpdate(
+    { emailConfirmationCode },
+    {
+      status: 'Active',
+    },
+    {
+      new: true,
+    }
+  );
+
+  if (user) {
+    // res.status(200).json({ user });
+
+    res.redirect(301, 'http://localhost:5001');
+  } else {
+    res.status(400);
+    throw new Error('could not activate');
+  }
+
+  //   if (user && (await bcrypt.compare(password, user.password))) {
+  //     res.json({
+  //       _id: user.id,
+  //       name: user.name,
+  //       email: user.email,
+  //       token: generateJWT(user._id, '30d'),
+  //     });
+  //   } else {
+  //     res.status(400);
+  //     throw new Error('invalid credentials');
+  //   }
+});
+
 // generate JWT
 const generateJWT = (payload, expiresIn) => {
   return jwt.sign({ payload }, process.env.JWT_SECRET, { expiresIn });
 };
 
-module.exports = { registerUser, loginUser, getMe };
+module.exports = { registerUser, loginUser, getMe, activateUser };

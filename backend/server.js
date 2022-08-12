@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: false })); //to decode body - x-www-form-
 // able to recieve req.body.
 
 app.get('/', (req, res) => {
-  res.json({ message: 'hello world' });
+  res.json({ message: 'root of server reached' });
 });
 
 app.use('/api/users', require('../backend/routes/userRoutes'));
