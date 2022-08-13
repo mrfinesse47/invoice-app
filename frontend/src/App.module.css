@@ -1,8 +1,4 @@
-h1 {
-  color: red;
-}
-
 .container {
-  min-height: 1vh;
-  background-color: blue;
+  min-height: 100vh;
+  background-color: #f8f8f8;
 }

@@ -8,6 +8,7 @@
   background-color: #7c5dfa;
   z-index: 0;
   overflow: hidden;
+  border-radius: 0rem 1.25rem 1.25rem 0rem;
 }
 
 .logo {

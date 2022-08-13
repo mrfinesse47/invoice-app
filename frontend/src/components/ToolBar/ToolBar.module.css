@@ -1,0 +1,23 @@
+.container {
+  background-color: #373b53;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.innerContainer {
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+
+.lightDarkButton {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding-right: 1.5006rem;
+  border-right: 1px solid #494e6e;
+}
+
+.avatar {
+  padding: 1.25rem 1.5rem;
+}
