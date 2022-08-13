@@ -1,0 +1,55 @@
+.container {
+  position: relative;
+  width: 4.5rem;
+  height: 4.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #7c5dfa;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.logo {
+  z-index: 5;
+}
+
+.backgroundEffect {
+  position: absolute;
+  width: 4.5rem;
+  height: 4.5rem;
+  background-color: #9277ff;
+  transform: translateY(50%);
+  z-index: -1;
+  border-radius: 1.25rem 0rem 1.25rem 0rem;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 5rem;
+    height: 5rem;
+  }
+  .backgroundEffect {
+    width: 5rem;
+    height: 5rem;
+  }
+  .logo {
+    width: 1.9375rem;
+    height: 1.8125rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .container {
+    width: 6.4375rem;
+    height: 6.4375rem;
+  }
+  .backgroundEffect {
+    width: 6.4375rem;
+    height: 6.4375rem;
+  }
+  .logo {
+    width: 2.5rem;
+    height: 2.3569rem;
+  }
+}
