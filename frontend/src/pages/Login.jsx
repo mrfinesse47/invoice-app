@@ -1,7 +1,19 @@
 import React from 'react';
 import styles from './Login.module.css';
+import { useState } from 'react';
 
 const Login = () => {
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+  });
+
+  const { email, password } = formData;
+
+  const onChange = (e) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
   return (
     <div className={styles.outerContainer}>
       <section className={styles.heading}>
@@ -18,8 +30,9 @@ const Login = () => {
               className='form-control'
               id='email'
               name='email'
-              value={''}
-              onChange={''}
+              autocomplete='email'
+              value={email}
+              onChange={onChange}
             />
           </div>
           <div className='form-group'>
@@ -29,7 +42,9 @@ const Login = () => {
               className='form-control'
               id='password'
               name='password'
-              value={''}
+              autocomplete='password'
+              value={password}
+              onChange={onChange}
             />
           </div>
 
