@@ -1,7 +1,20 @@
 .outerContainer {
-  margin: 34px 24px 0px;
+  padding: 34px 24px 0px;
+  max-width: 730px;
+  margin: auto;
+}
+
+.heading {
+  padding-left: 24px;
 }
 
 form {
   background-color: #fff;
+  margin-top: 32px;
+  padding: 24px;
+  border-radius: 8px;
+}
+
+.buttonSubmit {
+  margin-top: 47px;
 }

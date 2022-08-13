@@ -4,12 +4,12 @@ import styles from './Login.module.css';
 const Login = () => {
   return (
     <div className={styles.outerContainer}>
-      <section>
+      <section className={styles.heading}>
         <h1>Login</h1>
         <p className='sub-heading'>Please Sign In</p>
       </section>
 
-      <section className='form'>
+      <section>
         <form>
           <div className='form-group'>
             <label htmlFor='email'>Email</label>
@@ -19,7 +19,6 @@ const Login = () => {
               id='email'
               name='email'
               value={''}
-              placeholder='Enter Your Email'
               onChange={''}
             />
           </div>
@@ -31,13 +30,15 @@ const Login = () => {
               id='password'
               name='password'
               value={''}
-              placeholder='Enter Your password'
             />
           </div>
 
           <div className='form-group'>
-            <button type='submit' className='btn btn-default'>
-              Save Changes
+            <button
+              type='submit'
+              className={`btn btn-default ${styles.buttonSubmit}`}
+            >
+              Login
             </button>
           </div>
         </form>
