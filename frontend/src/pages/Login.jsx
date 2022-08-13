@@ -30,7 +30,7 @@ const Login = () => {
               className='form-control'
               id='email'
               name='email'
-              autocomplete='email'
+              autoComplete='email'
               value={email}
               onChange={onChange}
             />
@@ -42,7 +42,7 @@ const Login = () => {
               className='form-control'
               id='password'
               name='password'
-              autocomplete='password'
+              autoComplete='password'
               value={password}
               onChange={onChange}
             />
