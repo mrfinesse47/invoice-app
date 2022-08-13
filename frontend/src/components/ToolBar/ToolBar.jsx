@@ -11,25 +11,26 @@ import { useSelector, useDispatch } from 'react-redux';
 const Header = () => {
   const dispatch = useDispatch();
   return (
-    <div className={styles.container}>
+    <header className={styles.container}>
       <Logo />
       <div className={styles.innerContainer}>
         <div className={styles.lightDarkButton}>
           {/* will replace with proper button component */}
-          <Moon />
-        </div>
-        <div className={styles.avatar}>
-          {/* may have it so the user can have different avatars */}
           <button
             onClick={() => {
               dispatch(toggle());
             }}
           >
-            <Avatar />
+            <Moon />
           </button>
         </div>
+        <div className={styles.avatar}>
+          {/* may have it so the user can have different avatars */}
+
+          <Avatar />
+        </div>
       </div>
-    </div>
+    </header>
   );
 };
 
