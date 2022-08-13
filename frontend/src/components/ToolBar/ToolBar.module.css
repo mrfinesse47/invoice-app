@@ -1,4 +1,5 @@
 .container {
+  height: 4.5rem;
   background-color: #373b53;
   display: flex;
   align-items: center;
@@ -20,4 +21,21 @@
 
 .avatar {
   padding: 1.25rem 1.5rem;
+}
+
+button {
+  all: unset;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    height: 5rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
 }
