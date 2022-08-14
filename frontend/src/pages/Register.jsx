@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import styles from './Login.module.css';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
@@ -70,11 +70,14 @@ const Register = () => {
     }
   };
 
+  if (isLoading) {
+    return <Spinner />;
+  }
+
   return (
     <div className={styles.outerContainer}>
       <section className={styles.heading}>
         <h1>Registration</h1>
-        <p className='sub-heading'>Please Register To Our App</p>
       </section>
 
       <section>
@@ -138,6 +141,12 @@ const Register = () => {
             </button>
           </div>
         </form>
+        <footer>
+          <h3>
+            Already have an account?{' '}
+            <Link to='/login'>Click Here to Log In</Link>
+          </h3>
+        </footer>
       </section>
     </div>
   );
