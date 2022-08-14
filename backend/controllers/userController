@@ -16,6 +16,7 @@ const emailConfirmHTML = require('../mailer/HTMLmessages/emailConfirmation');
 
 const registerUser = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;
+
   if (!name || !password || !email) {
     res.status(400);
     throw new Error('please add all fields');
