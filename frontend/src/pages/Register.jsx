@@ -77,7 +77,7 @@ const Register = () => {
   return (
     <div className={styles.outerContainer}>
       <section className={styles.heading}>
-        <h1>Registration</h1>
+        <h2>Registration</h2>
       </section>
 
       <section>

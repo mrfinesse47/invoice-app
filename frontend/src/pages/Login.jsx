@@ -52,11 +52,11 @@ const Login = () => {
   return (
     <div className={styles.outerContainer}>
       <section className={styles.heading}>
-        <h1>Login</h1>
+        <h2>Login</h2>
       </section>
 
       <section>
-        <form>
+        <form onSubmit={onSubmit}>
           <div className='form-group'>
             <label htmlFor='email'>Email</label>
             <input
@@ -86,7 +86,6 @@ const Login = () => {
             <button
               type='submit'
               className={`btn btn-default ${styles.buttonSubmit}`}
-              onSubmit={onSubmit}
             >
               Login
             </button>
