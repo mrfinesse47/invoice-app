@@ -1,6 +1,11 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import styles from './Login.module.css';
 import { useState } from 'react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+import Spinner from '../components/Spinner/Spinner';
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -13,6 +18,17 @@ const Register = () => {
 
   const onChange = (e) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const { user, isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.auth
+  );
+
+  const showToastMessage = () => {
+    toast.success('Success Notification !', {
+      position: toast.POSITION.BOTTOM_RIGHT,
+      className: 'toast-message-dark',
+    });
   };
 
   return (
@@ -65,6 +81,10 @@ const Register = () => {
             <button
               type='submit'
               className={`btn btn-default ${styles.buttonSubmit}`}
+              onClick={(e) => {
+                e.preventDefault();
+                showToastMessage();
+              }}
             >
               Register
             </button>
