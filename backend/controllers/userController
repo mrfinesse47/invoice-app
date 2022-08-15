@@ -6,7 +6,6 @@ const sgMail = require('@sendgrid/mail');
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 const User = require('../model/userModel');
-
 const emailConfirmHTML = require('../mailer/HTMLmessages/emailConfirmation');
 
 //-----------------------------------------------------------------//
@@ -115,7 +114,8 @@ const activateUser = asyncHandler(async (req, res) => {
   );
 
   if (user) {
-    //create a couple dummy invoices, so the user has a couple to see upon login
+    //todo: create a couple dummy invoices, so the user has a couple to see upon login
+    //just for the sake of making the app look presentable and not emptyish
 
     res.redirect(301, 'http://localhost:5001');
   } else {
@@ -124,9 +124,15 @@ const activateUser = asyncHandler(async (req, res) => {
   }
 });
 
+//-----------------------------------------------------------------//
+// helper functions
+//-----------------------------------------------------------------//
+
 // generate JWT
 const generateJWT = (payload, expiresIn) => {
   return jwt.sign({ payload }, process.env.JWT_SECRET, { expiresIn });
 };
+
+//-----------------------------------------------------------------//
 
 module.exports = { registerUser, loginUser, activateUser };

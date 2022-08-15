@@ -1,6 +1,12 @@
 const asyncHandler = require('express-async-handler');
 const Invoice = require('../model/invoiceModel');
 
+//-----------------------------------------------------------------//
+// @desc  create an invoice
+// @route POST /api/invoices
+// @access Private
+//-----------------------------------------------------------------//
+
 const createInvoice = asyncHandler(async (req, res) => {
   const invoice = await Invoice.create({
     user: req.user.id,
@@ -31,7 +37,20 @@ const createInvoice = asyncHandler(async (req, res) => {
 
     total: 4455,
   });
-  res.send('create invoice');
+  res.status(200).json(invoice);
 });
 
-module.exports = { createInvoice };
+//-----------------------------------------------------------------//
+// @desc  get invoices for user
+// @route GET /api/invoices
+// @access Private
+//-----------------------------------------------------------------//
+
+const getInvoices = asyncHandler(async (req, res) => {
+  const invoices = await Invoice.find({ user: req.user.id });
+  res.status(200).json(invoices);
+});
+
+//-----------------------------------------------------------------//
+
+module.exports = { createInvoice, getInvoices };

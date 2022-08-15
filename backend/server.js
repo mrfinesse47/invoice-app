@@ -26,24 +26,6 @@ app.use('/api/invoices', require('../backend/routes/invoiceRoutes'));
 
 app.use(errorHandler); //must come after all of your routes, users etc.
 
-//tests for invoice model
-
-// const testInvoiceDb = async () => {
-//   let yourDate = new Date();
-//   yourDate.toISOString().split('T')[0];
-
-//   const invoice = await Invoice.create({
-//     createdAt: yourDate,
-//     paymentDue: yourDate,
-//     description: 'test',
-//     paymentTerms: 1,
-//   });
-//   console.log(invoice);
-//   return invoice;
-// };
-
-// const invoice = testInvoiceDb;
-
 app.listen(port, () => {
   console.log(`Server Started on port:${port}`);
 });
