@@ -6,6 +6,7 @@ const sgMail = require('@sendgrid/mail');
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 const User = require('../model/userModel');
+
 const emailConfirmHTML = require('../mailer/HTMLmessages/emailConfirmation');
 
 //-----------------------------------------------------------------//
@@ -114,6 +115,8 @@ const activateUser = asyncHandler(async (req, res) => {
   );
 
   if (user) {
+    //create a couple dummy invoices, so the user has a couple to see upon login
+
     res.redirect(301, 'http://localhost:5001');
   } else {
     res.status(400);

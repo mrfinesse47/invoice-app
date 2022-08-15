@@ -1,23 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const asyncHandler = require('express-async-handler');
-const Invoice = require('../model/invoiceModel');
+const { protect } = require('../middleware/authMiddleware');
 
-router.post(
-  '/',
-  asyncHandler(async (req, res) => {
-    let yourDate = new Date();
-    yourDate.toISOString().split('T')[0];
+const { createInvoice } = require('../controllers/invoiceController');
 
-    const invoice = await Invoice.create({
-      createdAt: yourDate,
-      paymentDue: yourDate,
-      description: 'test',
-      paymentTerms: 1,
-    });
-    console.log(invoice);
-    res.send('create invoice');
-  })
-);
+router.post('/', protect, createInvoice);
 
 module.exports = router;
