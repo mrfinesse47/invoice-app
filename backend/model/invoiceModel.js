@@ -41,8 +41,14 @@ const itemsScheema = mongoose.Schema(
 const invoiceScheema = mongoose.Schema(
   {
     user: { type: mongoose.Schema.Types.ObjectId, required: true, ref: 'User' },
-    createdAt: Date,
-    paymentDue: Date,
+    invoiceCreatedOn: {
+      type: Date,
+      required: [true, 'please add a invoice starting  date'],
+    },
+    paymentDue: {
+      type: Date,
+      required: [true, 'please add a payment due date'],
+    },
     description: { type: String, required: [true, 'please add a description'] },
     paymentTerms: {
       type: Number,
