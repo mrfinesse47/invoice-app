@@ -18,11 +18,14 @@ const protect = asyncHandler(async (req, res, next) => {
       // Get user from token
       req.user = await User.findById(decoded.payload).select('-password');
       // do not send password along
+      if (req.user.status === 'Pending') {
+        throw new Error('please activate your account');
+      }
 
       next();
     } catch (e) {
       res.status(401);
-      throw new Error('not authorized');
+      throw new Error(e);
     }
   }
   if (!token) {

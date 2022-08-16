@@ -50,25 +50,13 @@ const Register = () => {
       });
     }
     if (user) {
+      toast.success('Please check your email for an activation link', {
+        className: 'toast-message-dark',
+      });
       navigate('/');
     }
     // dispatch(reset());
   }, [user, isError, isSuccess, message, navigate, dispatch]);
-
-  const showToastMessage = (message, type) => {
-    if (type === 'success') {
-      toast.success(message, {
-        position: toast.POSITION.BOTTOM_RIGHT,
-        className: 'toast-message-dark',
-      });
-    }
-    if (type === 'error') {
-      toast.error(message, {
-        position: toast.POSITION.BOTTOM_RIGHT,
-        className: 'toast-message-dark',
-      });
-    }
-  };
 
   if (isLoading) {
     return <Spinner />;

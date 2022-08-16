@@ -37,6 +37,7 @@ const Login = () => {
         onClose: () => {
           dispatch(acknowledgeError());
         },
+        className: 'toast-message-dark',
       });
     }
     if (user) {
