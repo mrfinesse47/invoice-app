@@ -1,8 +1,7 @@
 import React from 'react';
+import Invoice from './Invoice';
 
-const InvoiceList = ({ invoices }) => {
-  console.log(invoices);
-  return <div>InvoiceList</div>;
-};
+const InvoiceList = ({ invoices }) =>
+  invoices.map((invoice) => <Invoice key={invoice._id} invoice={invoice} />);
 
 export default InvoiceList;
