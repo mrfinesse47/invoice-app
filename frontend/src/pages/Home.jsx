@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { getInvoices } from '../features/invoices/invoicesSlice';
+import InvoiceList from '../components/Invoices/InvoiceList';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ const Home = () => {
     }
   }, [user]);
   const { isDark } = useSelector((state) => state.lightDark);
-  return <h1></h1>;
+  return <InvoiceList invoices={invoices} />;
 };
 
 export default Home;

@@ -54,8 +54,8 @@ const invoiceScheema = mongoose.Schema(
       type: Number,
       required: [true, 'please specify the payment terms'],
     },
-    senderAddress: [{ type: addressScheema, required: true }],
-    clientAddress: [{ type: addressScheema, required: true }],
+    senderAddress: { type: addressScheema, required: true },
+    clientAddress: { type: addressScheema, required: true },
     items: [itemsScheema],
     total: {
       type: Number,

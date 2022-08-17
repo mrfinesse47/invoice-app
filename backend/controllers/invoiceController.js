@@ -20,6 +20,12 @@ const createInvoice = asyncHandler(async (req, res) => {
       postCode: 'V6H 3E5',
       country: 'Canada',
     },
+    clientAddress: {
+      street: '4511 SomewhereElse drive',
+      city: 'Somewhere',
+      postCode: 'V6J 3E5',
+      country: 'Canada',
+    },
     items: [
       {
         name: 'New Logo',
