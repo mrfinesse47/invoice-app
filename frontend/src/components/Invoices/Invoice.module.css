@@ -1,0 +1,39 @@
+li {
+  list-style: none;
+}
+
+.invoice {
+  background-color: white;
+  width: 20.4375rem;
+  padding: 1.5rem;
+}
+
+.invoice .topContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.clientName {
+  color: #858bb2;
+}
+
+.hash {
+  color: #7e88c3;
+}
+
+.topContainerInner {
+  margin-bottom: 8px;
+}
+
+.invoiceNum {
+  padding-bottom: 24px;
+}
+
+.dueDate {
+  color: #7e88c3;
+}
+
+.bottomContainer {
+  display: flex;
+  justify-content: space-between;
+}

@@ -11,14 +11,27 @@ const Invoice = ({ invoice }) => {
   return (
     <li>
       <button>
-        <div>
-          <div className='idAndName'>
-            <h3>{invoiceNum}</h3>
-            <p className='body-one'>{invoice.clientName}</p>
+        <div className={styles.invoice}>
+          <div className={styles.topContainer}>
+            <div className={styles.topContainerInner}>
+              <h4 className={styles.invoiceNum}>
+                <span className={styles.hash}>#</span>
+                {invoiceNum}
+              </h4>
+              <p className={'body-one ' + styles.dueDate}>{paymentDueDate}</p>
+            </div>
+            <p className={'body-one ' + styles.clientName}>
+              {invoice.clientName}
+            </p>
           </div>
-          <div className='dueDateAndStatus'>
-            <p className='body-one'>{paymentDueDate}</p>
-            <div className='status'></div>
+          <div className={styles.bottomContainer}>
+            <div className='cost'>
+              <h3>${invoice.total}</h3>
+            </div>
+            <div className='status'>
+              <div className='circle'></div>{' '}
+              <div className='state'>{invoice.status}</div>
+            </div>
           </div>
         </div>
       </button>
