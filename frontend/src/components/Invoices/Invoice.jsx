@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Invoice.module.css';
+import StatusBadge from '../StatusBadge/StatusBadge';
 import Moment from 'moment';
 
 const Invoice = ({ invoice }) => {
@@ -30,7 +31,8 @@ const Invoice = ({ invoice }) => {
             </div>
             <div className='status'>
               <div className='circle'></div>{' '}
-              <div className='state'>{invoice.status}</div>
+              {/* <div className='state'>{invoice.status}</div> */}
+              <StatusBadge />
             </div>
           </div>
         </div>

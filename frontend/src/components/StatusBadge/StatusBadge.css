@@ -1,0 +1,13 @@
+.status-badge {
+  display: flex;
+}
+
+.status-badge__circle {
+  border-radius: 50%;
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+.status-badge__paid {
+  background-color: #33d69f;
+}
