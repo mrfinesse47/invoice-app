@@ -1,11 +1,13 @@
 .status-badge {
   display: flex;
+  align-items: center;
 }
 
 .status-badge__circle {
   border-radius: 50%;
   width: 0.5rem;
   height: 0.5rem;
+  margin-right: 0.3125rem;
 }
 
 .status-badge__paid {
