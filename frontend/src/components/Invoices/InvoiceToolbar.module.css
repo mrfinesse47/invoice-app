@@ -1,0 +1,10 @@
+.subTitle {
+  color: #888eb0;
+}
+
+.invoiceToolbar {
+  display: flex;
+  justify-content: space-between;
+  width: 20.4375rem;
+  margin: 0 auto;
+}
