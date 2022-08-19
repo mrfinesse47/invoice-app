@@ -19,7 +19,9 @@ const Invoice = ({ invoice }) => {
                 <span className={styles.hash}>#</span>
                 {invoiceNum}
               </h4>
-              <p className={'body-one ' + styles.dueDate}>{paymentDueDate}</p>
+              <p className={'body-one ' + styles.dueDate}>
+                Due {paymentDueDate}
+              </p>
             </div>
             <p className={'body-one ' + styles.clientName}>
               {invoice.clientName}
@@ -27,7 +29,13 @@ const Invoice = ({ invoice }) => {
           </div>
           <div className={styles.bottomContainer}>
             <div className='cost'>
-              <h3>${invoice.total}</h3>
+              <h3>
+                ${' '}
+                {invoice.total.toLocaleString('en-US', {
+                  style: 'decimal',
+                  minimumFractionDigits: 2,
+                })}
+              </h3>
             </div>
             <div className='status'>
               <div className='circle'></div>{' '}
