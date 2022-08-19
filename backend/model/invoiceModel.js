@@ -49,11 +49,13 @@ const invoiceScheema = mongoose.Schema(
       type: Date,
       required: [true, 'please add a payment due date'],
     },
+    clientName: { type: String, required: [true, 'please add a client name'] },
     description: { type: String, required: [true, 'please add a description'] },
     paymentTerms: {
       type: Number,
       required: [true, 'please specify the payment terms'],
     },
+    status: { type: String, required: [true, 'please add an invoice status'] },
     senderAddress: { type: addressScheema, required: true },
     clientAddress: { type: addressScheema, required: true },
     items: [itemsScheema],

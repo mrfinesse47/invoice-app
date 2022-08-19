@@ -11,7 +11,7 @@ const InvoiveToolbar = ({ count }) => {
       </div>
       <div>
         <div>Fliter</div>
-        <PlusButton>New Invoice</PlusButton>
+        <PlusButton>New</PlusButton>
       </div>
     </div>
   );
