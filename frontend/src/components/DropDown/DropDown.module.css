@@ -1,0 +1,14 @@
+.dropDown {
+  font-family: 'Spartan';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.75rem;
+  line-height: 0.9375rem;
+  text-align: right;
+  letter-spacing: -0.0156rem;
+  color: #0c0e16;
+}
+
+.dropDown img {
+  padding-left: 18px;
+}
