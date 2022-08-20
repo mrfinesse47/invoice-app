@@ -8,3 +8,6 @@
   width: 20.4375rem;
   margin: 0 auto;
 }
+.actions {
+  display: flex;
+}
