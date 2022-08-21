@@ -1,12 +1,15 @@
 import React from 'react';
 import styles from './DropDown.module.css';
 import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { setFilter } from '../../features/invoices/invoicesSlice';
 
 const DropDown = () => {
   const possibleSelections = ['Draft', 'Pending', 'Paid']; //pull in from store
 
   const [isActive, setActive] = useState(false); //this is in terms of the drop down being displayed or not
   const [selected, setSelected] = useState(-1); //also should set using reducer action
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const pageClickEvent = () => {
@@ -32,8 +35,10 @@ const DropDown = () => {
     e.stopPropagation();
     if (selected === e.target.id) {
       setSelected(null);
+      dispatch(setFilter(null));
     } else {
       setSelected(e.target.id);
+      dispatch(setFilter(e.target.id));
     }
   };
 

@@ -7,6 +7,7 @@ const initialState = {
   isSuccess: false,
   isLoading: false,
   message: '',
+  filter: null,
 };
 
 //get goals
@@ -31,7 +32,12 @@ export const getInvoices = createAsyncThunk(
 export const invoicesSlice = createSlice({
   name: 'invoice',
   initialState,
-  reducers: { reset: (state) => initialState },
+  reducers: {
+    reset: (state) => initialState,
+    setFilter: (state, action) => {
+      state.filter = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getInvoices.pending, (state) => {
@@ -50,5 +56,5 @@ export const invoicesSlice = createSlice({
   },
 });
 
-export const { reset } = invoicesSlice.actions;
+export const { reset, setFilter } = invoicesSlice.actions;
 export default invoicesSlice.reducer;
