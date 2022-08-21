@@ -20,14 +20,47 @@
 
 .dropDownList {
   position: absolute;
-  width: 120%;
+  width: 192px;
   top: 104%;
-  left: -20%;
+  left: -100%;
   background-color: #fff;
   border-radius: 0.5rem;
   box-shadow: 0rem 0.625rem 1.25rem rgba(72, 84, 159, 0.25);
+  padding: 1.5rem;
+  z-index: 5;
 }
 
 .dropDownList button {
   display: block;
+}
+
+.dropDownList label {
+  display: block;
+  font-weight: 700;
+  font-size: 0.75rem;
+  line-height: 0.9375rem;
+  letter-spacing: -0.0156rem;
+  color: #0c0e16;
+  padding-left: 0.8125rem;
+}
+
+.dropDownList li {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.dropDownList li:last-of-type {
+  margin-bottom: 0;
+}
+
+.dropDownList.active {
+  display: block;
+}
+.dropDownList.inActive {
+  display: none;
+}
+
+img.rotate {
+  transform: rotateX(180deg);
 }

@@ -3,9 +3,10 @@ import styles from './DropDown.module.css';
 import { useEffect, useState } from 'react';
 
 const DropDown = () => {
-  const possibleSelections = ['Draft', 'Pending', 'Paid'];
-  const [isActive, setActive] = useState(false);
-  const [selected, setSelected] = useState(-1);
+  const possibleSelections = ['Draft', 'Pending', 'Paid']; //pull in from store
+
+  const [isActive, setActive] = useState(false); //this is in terms of the drop down being displayed or not
+  const [selected, setSelected] = useState(-1); //also should set using reducer action
 
   useEffect(() => {
     const pageClickEvent = () => {
@@ -27,31 +28,45 @@ const DropDown = () => {
     setActive(!isActive);
   };
 
-  const selectItem = (itemNum) => {
-    setSelected(itemNum);
-    //  props.setRegion(regions[itemNum]);
+  const toggleCheckbox = (e) => {
+    e.stopPropagation();
+    if (selected === e.target.id) {
+      setSelected(null);
+    } else {
+      setSelected(e.target.id);
+    }
   };
 
   return (
     <div className={styles.container}>
-      <button className={styles.dropDown}>
-        Filter <img src='./icon-arrow-down.svg' alt='filter' />{' '}
+      <button className={styles.dropDown} onClick={(e) => openMenu(e)}>
+        Filter{' '}
+        <img
+          src={`./icon-arrow-down.svg`}
+          alt={`${isActive ? 'close' : 'open'} filter menu`}
+          className={isActive ? styles.rotate : ''}
+        />{' '}
       </button>
-      <div>
-        <ul className={styles.dropDownList}>
-          {possibleSelections.map((selection, index) => (
+
+      <ul
+        className={`${styles.dropDownList} ${
+          isActive ? styles.active : styles.inActive
+        } `}
+      >
+        {possibleSelections.map((selection, index) => {
+          return (
             <li key={index}>
               <input
                 type='checkbox'
-                name='checkbox'
-                id='checkbox_id'
-                value='value'
+                id={selection}
+                onChange={toggleCheckbox}
+                checked={selected === selection}
               />
-              <label htmlFor='checkbox_id'>{selection}</label>
+              <label htmlFor={selection}>{selection}</label>
             </li>
-          ))}
-        </ul>
-      </div>
+          );
+        })}
+      </ul>
     </div>
   );
 };
