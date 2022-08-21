@@ -15,7 +15,6 @@ export const getInvoices = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const token = thunkAPI.getState().auth.user.token;
-      console.log(token);
       return await invoiceService.getInvoices(token);
     } catch (error) {
       const message =

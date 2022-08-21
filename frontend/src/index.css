@@ -12,6 +12,19 @@ body {
   color: #0c0e16;
 }
 
+/* lists */
+
+ul {
+  list-style: none;
+}
+
+/* checkbox */
+
+input[type='checkbox'] {
+  width: 1rem;
+  height: 1rem;
+}
+
 /* headings */
 
 h1 {

@@ -16,5 +16,5 @@
 /* layout */
 
 .actions button:nth-child(1) {
-  padding-right: 1.125rem;
+  margin-right: 1rem;
 }

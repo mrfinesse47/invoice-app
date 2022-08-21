@@ -10,5 +10,24 @@
 }
 
 .dropDown img {
-  padding-left: 18px;
+  padding-left: 0.625rem;
+}
+
+.container {
+  display: flex;
+  position: relative;
+}
+
+.dropDownList {
+  position: absolute;
+  width: 120%;
+  top: 104%;
+  left: -20%;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0rem 0.625rem 1.25rem rgba(72, 84, 159, 0.25);
+}
+
+.dropDownList button {
+  display: block;
 }

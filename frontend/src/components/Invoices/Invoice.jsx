@@ -10,7 +10,7 @@ const Invoice = ({ invoice }) => {
 
   const paymentDueDate = Moment(invoice.paymentDue).format('DD MMM YYYY');
   return (
-    <li>
+    <li className={styles.invoiceList}>
       <button>
         <div className={styles.invoice}>
           <div className={styles.topContainer}>
