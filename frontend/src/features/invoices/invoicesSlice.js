@@ -3,6 +3,7 @@ import invoiceService from './invoicesService';
 
 const initialState = {
   invoices: [],
+  filteredInvoices: [],
   isError: false,
   isSuccess: false,
   isLoading: false,
@@ -35,7 +36,19 @@ export const invoicesSlice = createSlice({
   reducers: {
     reset: (state) => initialState,
     setFilter: (state, action) => {
-      state.filter = action.payload;
+      if (action.payload) {
+        state.filter = action.payload.toLowerCase();
+      } else {
+        state.filter = null;
+      }
+
+      if (state.filter) {
+        state.filteredInvoices = state.invoices.filter(
+          (item) => item.status === state.filter
+        );
+      } else {
+        state.filteredInvoices = [...state.invoices];
+      }
     },
   },
   extraReducers: (builder) => {
@@ -47,6 +60,13 @@ export const invoicesSlice = createSlice({
         state.isLoading = false;
         state.isSuccess = true;
         state.invoices = action.payload;
+        if (state.filter) {
+          state.filteredInvoices = state.invoices.filter(
+            (item) => item.status === state.filter
+          );
+        } else {
+          state.filteredInvoices = [...state.invoices];
+        }
       })
       .addCase(getInvoices.rejected, (state, action) => {
         state.isLoading = false;

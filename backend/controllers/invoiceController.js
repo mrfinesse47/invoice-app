@@ -13,7 +13,7 @@ const createInvoice = asyncHandler(async (req, res) => {
     invoiceCreatedOn: '2022-08-05',
     paymentDue: '2022-08-06',
     description: 'test',
-    status: 'active',
+    status: 'pending',
     clientName: 'Natalie Nathan',
     paymentTerms: 1,
     senderAddress: {

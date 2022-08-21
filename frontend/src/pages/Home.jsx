@@ -10,7 +10,7 @@ const Home = () => {
   const dispatch = useDispatch();
 
   const { user } = useSelector((state) => state.auth);
-  const { invoices, isLoading, isError, message } = useSelector(
+  const { filteredInvoices, isLoading, isError, message, filter } = useSelector(
     (state) => state.invoices
   );
 
@@ -21,8 +21,8 @@ const Home = () => {
       dispatch(getInvoices());
     }
   }, [user]);
-  const { isDark } = useSelector((state) => state.lightDark);
-  return <InvoiceList invoices={invoices} />;
+  // const { isDark } = useSelector((state) => state.lightDark);
+  return <InvoiceList invoices={filteredInvoices} />;
 };
 
 export default Home;
