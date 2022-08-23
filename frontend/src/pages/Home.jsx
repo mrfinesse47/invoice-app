@@ -22,7 +22,7 @@ const Home = () => {
     }
   }, [user]);
   // const { isDark } = useSelector((state) => state.lightDark);
-  return <InvoiceList invoices={filteredInvoices} />;
+  return <InvoiceList invoices={filteredInvoices} isLoading={isLoading} />;
 };
 
 export default Home;
