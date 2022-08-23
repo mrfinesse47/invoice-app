@@ -3,9 +3,9 @@ import styles from './InvoiceToolbar.module.css';
 import PlusButton from '../Buttons/PlusButton';
 import DropDown from '../DropDown/DropDown';
 
-const InvoiveToolbar = ({ count }) => {
+const InvoiceToolbar = ({ count }) => {
   return (
-    <div className={styles.invoiceToolbar}>
+    <nav className={styles.invoiceToolbar}>
       <div>
         <h2>Invoices</h2>
         <p className={`${styles.subTitle} body-one`}>{count} invoices</p>
@@ -14,8 +14,8 @@ const InvoiveToolbar = ({ count }) => {
         <DropDown />
         <PlusButton>New</PlusButton>
       </div>
-    </div>
+    </nav>
   );
 };
 
-export default InvoiveToolbar;
+export default InvoiceToolbar;

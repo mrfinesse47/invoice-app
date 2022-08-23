@@ -1,7 +1,7 @@
 import React from 'react';
 import Invoice from './Invoice';
 import styles from './InvoiceList.module.css';
-import InvoiceToolBar from './InvoiveToolbar';
+import InvoiceToolBar from './InvoiceToolbar';
 import Spinner from '../Spinner/Spinner';
 import Nothing from '../Nothing/Nothing';
 
