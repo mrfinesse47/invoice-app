@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 4.375rem;
+}
+
+.container img {
+  margin-bottom: 4rem;
+}
+
+.container div {
+  width: 218px;
+}
+
+.container div p {
+  color: #888eb0;
+  margin-top: 24px;
+}
