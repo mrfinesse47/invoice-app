@@ -47,7 +47,7 @@ const DropDown = () => {
       <button className={styles.dropDown} onClick={(e) => openMenu(e)}>
         Filter{' '}
         <img
-          src={`./icon-arrow-down.svg`}
+          src={`./images/icon-arrow-down.svg`}
           alt={`${isActive ? 'close' : 'open'} filter menu`}
           className={isActive ? styles.rotate : ''}
         />{' '}

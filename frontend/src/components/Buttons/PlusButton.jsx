@@ -6,7 +6,7 @@ const Button = ({ children }) => {
     <button className={`btn btn-default ${styles.btnPlus}`}>
       <div className={styles.container}>
         <div className={styles.plus}>
-          <img src='/icon-plus.svg' alt='' />
+          <img src='./images/icon-plus.svg' alt='' />
         </div>
         {children}
       </div>

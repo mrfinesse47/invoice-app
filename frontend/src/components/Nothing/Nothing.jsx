@@ -4,7 +4,7 @@ import styles from './Nothing.module.css';
 const Nothing = () => {
   return (
     <div className={styles.container}>
-      <img src='./illustration-empty.svg' alt='nothing here' />
+      <img src='./images/illustration-empty.svg' alt='nothing here' />
       <div>
         <h2>There is nothing here</h2>
         <p className='body-one'>
