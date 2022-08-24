@@ -2,8 +2,10 @@ import React from 'react';
 import styles from './InvoiceToolbar.module.css';
 import PlusButton from '../Buttons/PlusButton';
 import DropDown from '../DropDown/DropDown';
+import { useNavigate } from 'react-router-dom';
 
 const InvoiceToolbar = ({ count }) => {
+  const navigate = useNavigate();
   return (
     <nav className={styles.invoiceToolbar}>
       <div>
@@ -12,7 +14,13 @@ const InvoiceToolbar = ({ count }) => {
       </div>
       <div className={styles.actions}>
         <DropDown />
-        <PlusButton>New</PlusButton>
+        <PlusButton
+          onClick={() => {
+            navigate('new-invoice');
+          }}
+        >
+          New
+        </PlusButton>
       </div>
     </nav>
   );

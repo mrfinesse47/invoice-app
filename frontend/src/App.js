@@ -7,6 +7,7 @@ import styles from './App.module.css';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import ToolBar from './components/ToolBar/ToolBar';
+import NewInvoice from './pages/NewInvoice';
 import Home from './pages/Home';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
+            <Route path='/new-invoice' element={<NewInvoice />} />
             <Route path='/*' element={<Home />} />
           </Routes>
         </div>
