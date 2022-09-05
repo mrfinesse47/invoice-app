@@ -50,9 +50,6 @@ const Register = () => {
       });
     }
     if (user) {
-      toast.success('Please check your email for an activation link', {
-        className: 'toast-message-dark',
-      });
       navigate('/');
     }
     // dispatch(reset());

@@ -19,16 +19,29 @@ const Home = () => {
     if (!user) {
       navigate('/login');
     } else {
-      dispatch(getInvoices());
+      if (user.status === 'Pending') {
+        toast.success('Please check your email for an activation link', {
+          className: 'toast-message-dark',
+        });
+      } else {
+        dispatch(getInvoices());
+      }
+      if (isError) {
+        toast.error(message, {
+          className: 'toast-message-dark',
+        });
+      }
     }
-    if (isError) {
-      toast.error(message, {
-        className: 'toast-message-dark',
-      });
-    }
-  }, [user, isError]);
+  }, [user, isError, dispatch, toast]);
   // const { isDark } = useSelector((state) => state.lightDark);
-  return <InvoiceList invoices={filteredInvoices} isLoading={isLoading} />;
+
+  return (
+    <InvoiceList
+      invoices={filteredInvoices}
+      isLoading={isLoading}
+      user={user}
+    />
+  );
 };
 
 export default Home;

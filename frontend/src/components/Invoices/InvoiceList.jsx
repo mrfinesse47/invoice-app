@@ -5,14 +5,18 @@ import InvoiceToolBar from './InvoiceToolbar';
 import Spinner from '../Spinner/Spinner';
 import Nothing from '../Nothing/Nothing';
 
-const InvoiceList = ({ invoices, isLoading }) => {
+const InvoiceList = ({ invoices, isLoading, user }) => {
   if (isLoading) {
     return <Spinner />;
   }
+
   return (
     //invoice toolbar
+
     <>
-      <InvoiceToolBar count={invoices.length} />
+      {user && user.status !== 'Pending' && (
+        <InvoiceToolBar count={invoices.length} />
+      )}
       {invoices.length === 0 ? (
         <Nothing />
       ) : (

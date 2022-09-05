@@ -40,7 +40,6 @@ const Login = () => {
         className: 'toast-message-dark',
       });
     }
-    console.log('login: ', user);
     if (user) {
       navigate('/');
     }

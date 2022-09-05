@@ -16,6 +16,8 @@ const Nothing = () => {
               Check your email for an activation link. It may take up to ten{' '}
               {''}
               minutes to arrive and may be in your spam or promotions folders.
+              You Will not be able to create or view invoices until you have
+              activated.
             </p>
           </>
         ) : (
