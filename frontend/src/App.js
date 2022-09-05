@@ -9,6 +9,7 @@ import Register from './pages/Register';
 import ToolBar from './components/ToolBar/ToolBar';
 import NewInvoice from './pages/NewInvoice';
 import Home from './pages/Home';
+import ActivateEmail from './pages/ActivateEmail';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
             <Route path='/new-invoice' element={<NewInvoice />} />
+            <Route path='/activate-email' element={<ActivateEmail />} />
             <Route path='/*' element={<Home />} />
           </Routes>
         </div>

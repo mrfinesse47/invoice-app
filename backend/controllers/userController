@@ -119,7 +119,7 @@ const activateUser = asyncHandler(async (req, res) => {
     //todo: create a couple dummy invoices, so the user has a couple to see upon login
     //just for the sake of making the app look presentable and not emptyish
 
-    res.redirect(301, 'http://localhost:3000/');
+    res.redirect(301, 'http://localhost:3000/activate-email');
   } else {
     res.status(400);
     throw new Error('could not activate please try again');
