@@ -61,6 +61,7 @@ const registerUser = asyncHandler(async (req, res) => {
       _id: user.id,
       name: user.name,
       email: user.email,
+      status: user.status,
       token: generateJWT(user._id, '30d'),
     });
   } else {
@@ -118,7 +119,7 @@ const activateUser = asyncHandler(async (req, res) => {
     //todo: create a couple dummy invoices, so the user has a couple to see upon login
     //just for the sake of making the app look presentable and not emptyish
 
-    res.redirect(301, 'http://localhost:3000');
+    res.redirect(301, 'http://localhost:3000/');
   } else {
     res.status(400);
     throw new Error('could not activate please try again');

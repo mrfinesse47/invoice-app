@@ -19,7 +19,9 @@ const protect = asyncHandler(async (req, res, next) => {
       req.user = await User.findById(decoded.payload).select('-password');
       // do not send password along
       if (req.user.status === 'Pending') {
-        throw new Error('please activate your account');
+        throw new Error(
+          'please activate your account, check your email for activation link!'
+        );
       }
 
       next();
