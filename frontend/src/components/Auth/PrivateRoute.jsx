@@ -6,11 +6,6 @@ const PrivateRoute = ({ children }) => {
   const { user } = useSelector((state) => state.auth);
 
   if (user) {
-    if (user.status === 'Pending') {
-      toast.success('Please check your email for an activation link', {
-        className: 'toast-message-dark',
-      });
-    }
     return children;
   }
 

@@ -7,7 +7,6 @@ import { toast } from 'react-toastify';
 const ActivateEmail = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
   const { user } = useSelector((state) => state.auth);
 
   useEffect(() => {
@@ -18,9 +17,11 @@ const ActivateEmail = () => {
           className: 'toast-message-dark',
         }
       );
+      dispatch(logout());
     }
-    dispatch(logout());
-    navigate('/login');
+    if (user === null) {
+      navigate('/login');
+    }
   }, [user]);
   return <div>ActivateEmail</div>;
 };

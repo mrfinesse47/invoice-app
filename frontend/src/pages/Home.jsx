@@ -12,15 +12,22 @@ const Home = () => {
     (state) => state.invoices
   );
 
-  useEffect(() => {
-    dispatch(getInvoices());
+  const { user } = useSelector((state) => state.auth);
 
-    if (isError) {
-      toast.error(message, {
+  useEffect(() => {
+    if (user.status === 'Pending') {
+      toast.success('Please check your email for an activation link', {
         className: 'toast-message-dark',
       });
+    } else {
+      dispatch(getInvoices());
+      if (isError) {
+        toast.error(message, {
+          className: 'toast-message-dark',
+        });
+      }
     }
-  }, [isError, message, dispatch, toast]);
+  }, [isError, message, user, dispatch, toast]);
 
   return <InvoiceList invoices={filteredInvoices} isLoading={isLoading} />;
 };

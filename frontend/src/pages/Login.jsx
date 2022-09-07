@@ -32,6 +32,9 @@ const Login = () => {
   };
 
   useEffect(() => {
+    if (user) {
+      navigate('/');
+    }
     if (isError) {
       toast.error(message, {
         onClose: () => {
@@ -39,9 +42,6 @@ const Login = () => {
         },
         className: 'toast-message-dark',
       });
-    }
-    if (user) {
-      navigate('/');
     }
   }, [user, isError, isSuccess, message, navigate, dispatch]);
 
