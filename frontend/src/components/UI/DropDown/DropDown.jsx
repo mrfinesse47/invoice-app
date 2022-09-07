@@ -27,12 +27,10 @@ const DropDown = () => {
   }, [isActive]);
 
   const openMenu = (event) => {
-    event.stopPropagation(); //needed so it doesnt count as a window click
     setActive(!isActive);
   };
 
   const toggleCheckbox = (e) => {
-    e.stopPropagation();
     if (selected === e.target.id) {
       setSelected(null);
       dispatch(setFilter(null));
@@ -43,7 +41,7 @@ const DropDown = () => {
   };
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} onClick={(e) => e.stopPropagation()}>
       <button className={styles.dropDown} onClick={(e) => openMenu(e)}>
         Filter{' '}
         <img

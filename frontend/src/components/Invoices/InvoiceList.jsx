@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Invoice from './Invoice';
 import styles from './InvoiceList.module.css';
 import InvoiceToolBar from './InvoiceToolbar';
 import Spinner from '../UI/Spinner/Spinner';
 import Nothing from '../Nothing/Nothing';
+import { useSelector } from 'react-redux';
 
-const InvoiceList = ({ invoices, isLoading, user }) => {
+const InvoiceList = ({ invoices, isLoading }) => {
+  const { user } = useSelector((state) => state.auth);
   if (isLoading) {
     return <Spinner />;
   }
