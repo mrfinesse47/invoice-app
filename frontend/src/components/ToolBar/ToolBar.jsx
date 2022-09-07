@@ -5,7 +5,7 @@ import { toggle } from '../../features/lightDarkMode/lightDarkModeSlice';
 import Logo from '../../icons/logo/Logo';
 import Moon from '../../icons/moon/Moon';
 import styles from './ToolBar.module.css';
-import Avatar from '../Avatar/Avatar';
+import Avatar from '../UI/Icons/Avatar/Avatar';
 import { useSelector, useDispatch } from 'react-redux';
 
 const Header = () => {

@@ -1,28 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './InvoiceToolbar.module.css';
-import PlusButton from '../Buttons/PlusButton';
-import DropDown from '../DropDown/DropDown';
+import PlusButton from '../UI/Buttons/PlusButton';
+import DropDown from '../UI/DropDown/DropDown';
 import { useNavigate } from 'react-router-dom';
+import SideDrawer from '../SideDrawer/SideDrawer';
 
 const InvoiceToolbar = ({ count }) => {
+  const [showSideDrawer, setShowSideDrawer] = useState(false);
   const navigate = useNavigate();
+
   return (
-    <nav className={styles.invoiceToolbar}>
-      <div>
-        <h2>Invoices</h2>
-        <p className={`${styles.subTitle} body-one`}>{count} invoices</p>
-      </div>
-      <div className={styles.actions}>
-        <DropDown />
-        <PlusButton
-          onClick={() => {
-            navigate('new-invoice');
-          }}
-        >
-          New
-        </PlusButton>
-      </div>
-    </nav>
+    <>
+      <SideDrawer
+        showSideDrawer={showSideDrawer}
+        setShowSideDrawer={setShowSideDrawer}
+      ></SideDrawer>
+
+      <nav className={styles.invoiceToolbar}>
+        <div>
+          <h2>Invoices</h2>
+          <p className={`${styles.subTitle} body-one`}>{count} invoices</p>
+        </div>
+        <div className={styles.actions}>
+          <DropDown />
+          <PlusButton
+            onClick={() => {
+              setShowSideDrawer(true);
+            }}
+          >
+            New
+          </PlusButton>
+        </div>
+      </nav>
+    </>
   );
 };
 

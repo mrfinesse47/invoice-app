@@ -1,5 +1,5 @@
 import React from 'react';
-import InvoiceForm from '../components/Invoices/InvoiceForm';
+import InvoiceForm from './InvoiceForm';
 
 const NewInvoice = () => {
   return (

@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { login, acknowledgeError } from '../features/auth/authSlice';
 import { useNavigate, Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import Spinner from '../components/Spinner/Spinner';
+import Spinner from '../components/UI/Spinner/Spinner';
 
 const Login = () => {
   const [formData, setFormData] = useState({

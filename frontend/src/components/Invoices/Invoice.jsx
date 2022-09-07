@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Invoice.module.css';
-import StatusBadge from '../StatusBadge/StatusBadge';
+import StatusBadge from '../UI/StatusBadge/StatusBadge';
 import Moment from 'moment';
 
 const Invoice = ({ invoice }) => {

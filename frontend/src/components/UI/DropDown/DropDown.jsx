@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './DropDown.module.css';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { setFilter } from '../../features/invoices/invoicesSlice';
+import { setFilter } from '../../../features/invoices/invoicesSlice';
 
 const DropDown = () => {
   const possibleSelections = ['Draft', 'Pending', 'Paid']; //pull in from store

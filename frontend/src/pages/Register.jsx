@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 import { register, acknowledgeError } from '../features/auth/authSlice';
 import 'react-toastify/dist/ReactToastify.css';
 
-import Spinner from '../components/Spinner/Spinner';
+import Spinner from '../components/UI/Spinner/Spinner';
 
 const Register = () => {
   const navigate = useNavigate();
