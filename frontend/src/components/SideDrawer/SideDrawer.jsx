@@ -4,7 +4,7 @@ import styles from './SideDrawer.module.css';
 
 const backdrop = { visible: { opacity: 1 }, hidden: { opacity: 0 } };
 
-const SideDrawer = ({ showSideDrawer, setShowSideDrawer }) => {
+const SideDrawer = ({ showSideDrawer, setShowSideDrawer, children }) => {
   return (
     <AnimatePresence wait>
       {showSideDrawer && (
@@ -17,6 +17,7 @@ const SideDrawer = ({ showSideDrawer, setShowSideDrawer }) => {
           exit='hidden'
         >
           <motion.div
+            onClick={(e) => e.stopPropagation()}
             className={styles.sideDrawer}
             initial={{ x: '-100vw' }}
             animate={{
@@ -27,14 +28,7 @@ const SideDrawer = ({ showSideDrawer, setShowSideDrawer }) => {
             }}
             transition={{ type: 'spring', bounce: 0, duration: 0.4 }}
           >
-            <p>
-              this will be for new invoice most likley, but even better if its
-              the children of this component
-            </p>
-
-            <button onClick={() => setShowSideDrawer(false)}>
-              start again
-            </button>
+            {children}
           </motion.div>
         </motion.div>
       )}

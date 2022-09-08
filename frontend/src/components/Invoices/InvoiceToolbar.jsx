@@ -14,7 +14,9 @@ const InvoiceToolbar = ({ count }) => {
       <SideDrawer
         showSideDrawer={showSideDrawer}
         setShowSideDrawer={setShowSideDrawer}
-      ></SideDrawer>
+      >
+        <p>Test of side drawer children</p>
+      </SideDrawer>
 
       <nav className={styles.invoiceToolbar}>
         <div>
