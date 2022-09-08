@@ -1,0 +1,39 @@
+.container {
+  padding: 0 1.5rem;
+  text-align: left;
+}
+
+.formHeader button {
+  display: flex;
+  align-items: center;
+}
+.formHeader button div {
+  font-weight: 700;
+  font-size: 0.75rem;
+  line-height: 0.9375rem;
+  letter-spacing: -0.0156rem;
+  padding-left: 1.4788rem;
+}
+
+.formMain {
+  margin-top: 0;
+  padding: 0;
+}
+
+.formMain h1 {
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  letter-spacing: -0.0313rem;
+  color: #0c0e16;
+  margin-bottom: 2rem;
+}
+
+.formMain h5 {
+  font-weight: 700;
+  font-size: 0.75rem;
+  line-height: 0.9375rem;
+  letter-spacing: -0.0156rem;
+  color: #7c5dfa;
+  margin-bottom: 2rem;
+}

@@ -4,6 +4,7 @@ import PlusButton from '../UI/Buttons/PlusButton';
 import DropDown from '../UI/DropDown/DropDown';
 import { useNavigate } from 'react-router-dom';
 import SideDrawer from '../SideDrawer/SideDrawer';
+import NewInvoice from './NewInvoice';
 
 const InvoiceToolbar = ({ count }) => {
   const [showSideDrawer, setShowSideDrawer] = useState(false);
@@ -15,7 +16,7 @@ const InvoiceToolbar = ({ count }) => {
         showSideDrawer={showSideDrawer}
         setShowSideDrawer={setShowSideDrawer}
       >
-        <p>Test of side drawer children</p>
+        <NewInvoice></NewInvoice>
       </SideDrawer>
 
       <nav className={styles.invoiceToolbar}>
