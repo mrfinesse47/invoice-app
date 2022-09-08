@@ -3,6 +3,21 @@
   text-align: left;
 }
 
+.subFormGroup {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.subFormGroup div:first-child {
+  padding-right: 23px;
+}
+
+.subFormGroup div {
+  width: 50%;
+}
+
 .formHeader button {
   display: flex;
   align-items: center;
