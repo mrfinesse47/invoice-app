@@ -1,6 +1,11 @@
 .container {
   padding: 0 1.5rem;
+  padding-bottom: 20rem;
   text-align: left;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: calc(100vh - 4.5rem);
+  /* second number is height of toolbar */
 }
 
 .subFormGroup {
